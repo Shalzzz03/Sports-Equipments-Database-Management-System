@@ -1,0 +1,53 @@
+.body{
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(187,218,244,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    font-size: 1.5rem;
+}
+.card {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(240,248,255);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);  
+    padding: 60px; 
+    filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content:center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* max-width: 600px; */
+    width: 50vh;
+    margin: 0 auto;
+}
+
+input[type="text"] {
+    width: 80%; /* Adjust the width as needed */
+    padding: 10px; /* Adjust padding as needed */
+    margin: 5px 0; /* Adjust margin as needed */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure the padding and border are included in the element's total width and height */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold;
+  }
+  
+  input[type="text"]:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+  }
+
+label{
+    font-weight: bold;
+}
+
+.btn{
+    padding: 50px;
+}

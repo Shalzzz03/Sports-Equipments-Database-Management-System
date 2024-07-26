@@ -1,0 +1,375 @@
+
+
+.eLLIPSE {
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    border-radius: 50%;
+    /* background-color: #000; */
+    background: url("https://img.collegepravesh.com/2017/02/PICT-Logo.jpg");
+    background-repeat: no-repeat;
+    background-size: 67px 62px;
+    /* height: 92px; */
+    /* width: 92px; */
+  }
+  .hOMEText {
+    align-self: stretch;
+    width: 121px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 50px 0 0;
+    box-sizing: border-box;
+  }
+  .home {
+    width: 84.2px;
+    color: #293241;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .home,
+  .sports {
+    position: relative;
+  }
+  .cONTACTUSText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 30px 20px 0;
+  }
+  .equipments {
+    align-self: stretch;
+    position: relative;
+  }
+  .aBOUTUSFrame {
+    height: 23px;
+    width: 173px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3px 9px 0 0;
+    box-sizing: border-box;
+  }
+  .aboutUs {
+    align-self: stretch;
+    position: relative;
+    white-space: nowrap;
+  }
+  .aBOUTUSFrame1 {
+    height: 63px;
+    width: 123px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 9px 20px 0;
+    box-sizing: border-box;
+  }
+  .contactUs {
+    width: 141px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .eQUIPMENTSFrame {
+    width: 1081px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    gap: 20px;
+    max-width: 100%;
+  }
+  .div {
+    align-self: stretch;
+    height: 0;
+    position: relative;
+  }
+  .fRAMEBChild {
+    width: 1440px;
+    height: 171px;
+    position: relative;
+    background-color: transparent;
+    display: none;
+    max-width: 100%;
+  }
+  .fRAMEB {
+    align-self: stretch;
+    /* width: 1451px; */
+    width: 100vw;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 0 0;
+    box-sizing: border-box;
+    gap: 47px 0;
+    /* max-width: 101%; */
+    max-width: 100vw;
+    z-index: 1;
+  }
+  .fRAMEA,
+  .rectangleA {
+    align-self: stretch;
+    /* max-width: 100%; */
+    max-width: 100vw;
+  }
+  .fRAMEA {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+    font-family: Inter;
+  }
+  .rectangleA {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      rgba(47, 95, 138, 0.46),
+      rgba(47, 95, 138, 0) 85%
+    );
+    transform: rotate(180deg);
+  }
+  .forFaculty {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    font-weight: 400;
+    font-family: inherit;
+  }
+  .adminLoginFrame {
+    width: 100%;
+    height: 50.4px;
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #e8eaf6;
+  }
+  .adminLogin {
+    width: 122.7px;
+    height: 42.5px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .fRAMEF,
+  .userLoginText {
+    display: flex;
+    align-items: flex-start;
+  }
+  .fRAMEF {
+    flex: 1;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px 26px 0;
+    position: relative;
+  }
+  .userLoginText {
+    width: 220px;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 19px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .aDMINLOGINFrame,
+  .fORFACULTYText {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .aDMINLOGINFrame {
+    align-items: flex-end;
+    gap: 67px 0;
+  }
+  .fORFACULTYText {
+    width: 457px;
+    align-items: flex-start;
+    padding: 299px 0 0;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .groupIcon {
+    width: 1px;
+    flex: 1;
+    position: relative;
+    max-height: 100%;
+    z-index: 4;
+  }
+  .forFacultyFrame {
+    height: 702px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 105px 0 0;
+    box-sizing: border-box;
+  }
+  .forStudents {
+    margin: 0;
+    width: 318px;
+    height: 74px;
+    position: relative;
+    font-size: inherit;
+    font-weight: 400;
+    font-family: inherit;
+    display: inline-block;
+    flex-shrink: 0;
+    z-index: 4;
+  }
+  .forStudentsFrameChild {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    right: 0;
+    bottom: 1px;
+    left: 0;
+    background-color: transparent;
+  }
+  .toKnowAbout,
+  .userLogin {
+    position: relative;
+    display: inline-block;
+  }
+  .toKnowAbout {
+    align-self: stretch;
+    height: 36px;
+    flex-shrink: 0;
+  }
+  .userLogin {
+    height: 26.6px;
+    font-size: 16px;
+    font-family: Inter;
+    color: #293241;
+    text-align: center;
+  }
+  .userFrame,
+  .userLoginWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .userLoginWrapper {
+    cursor: pointer;
+    border: 0;
+    padding: 17px 37px 13px 42px;
+    background-color: rgba(47, 95, 138, 0.59);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
+  }
+  .userLoginWrapper:hover {
+    background-color: rgba(84, 133, 176, 0.59);
+  }
+  .userFrame {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 11px 0 0;
+  }
+  .forStudentsFrame,
+  .toKnowEquipments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .toKnowEquipments {
+    width: 286px;
+    gap: 6px 0;
+    margin-top: -4px;
+    font-size: 15px;
+  }
+  .forStudentsFrame {
+    flex: 1;
+    padding: 297px 51px 386px 20px;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 100%;
+  }
+  .fORSTUDENTSFrame,
+  .fRAMEE {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+  }
+  .fRAMEE {
+    width: 1435px;
+    margin: 0 !important;
+    position: absolute;
+    top: -150px;
+    right: -700px;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 0 253px;
+    gap: 0 5px;
+    z-index: 3;
+  }
+  .fORSTUDENTSFrame {
+    width: 735px;
+    height: 851px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 0 0;
+    position: relative;
+    max-width: 100%;
+    z-index: 2;
+  }
+  .desktop2 {
+    width: 100vw;
+    height: 12vh;
+    background-color: rgb(240,248,255);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1px 0;
+    letter-spacing: normal;
+    text-align: center;
+    font-size: 36px;
+    color: #293241;
+    font-family: Inter;
+  }
+  /* @media screen and (max-width: 750px) {
+    .eQUIPMENTSFrame {
+      display: none;
+    }
+    .fRAMEB {
+      width: 370px;
+      gap: 47px 0;
+    }
+    .forFaculty,
+    .forStudents {
+      font-size: 29px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .forFaculty,
+    .forStudents {
+      font-size: 22px;
+    }
+  } */

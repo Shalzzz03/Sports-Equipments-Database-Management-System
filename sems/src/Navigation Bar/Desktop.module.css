@@ -27,10 +27,13 @@
     color: #293241;
     display: inline-block;
     flex-shrink: 0;
+    text-decoration: none;
   }
   .home,
   .sports {
     position: relative;
+    color: #293241;
+    text-decoration: none;
   }
   .cONTACTUSText {
     display: flex;
@@ -42,6 +45,8 @@
   .equipments {
     align-self: stretch;
     position: relative;
+    color: #293241;
+    text-decoration: none;
   }
   .aBOUTUSFrame {
     height: 23px;
@@ -57,6 +62,8 @@
     align-self: stretch;
     position: relative;
     white-space: nowrap;
+    color: #293241;
+    text-decoration: none;
   }
   .aBOUTUSFrame1 {
     height: 63px;
@@ -74,6 +81,8 @@
     display: inline-block;
     flex-shrink: 0;
     white-space: nowrap;
+    color: #293241;
+    text-decoration: none;
   }
   .eQUIPMENTSFrame {
     width: 1081px;

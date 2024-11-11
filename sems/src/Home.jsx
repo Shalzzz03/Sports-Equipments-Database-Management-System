@@ -39,6 +39,7 @@ const Item2 = styled('div')({
 });
 
 const StyledButton1 = styled(Button)({
+  marginTop: '40px',
   padding: '10px 20px',
   fontSize: '16px',
   backgroundColor: 'white',
@@ -48,6 +49,7 @@ const StyledButton1 = styled(Button)({
   borderRadius: '5px',
 });
 const StyledButton2 = styled(Button)({
+  marginTop: '40px',
   padding: '10px 20px',
   fontSize: '16px',
   // fontFamily:'vardhana',
@@ -56,6 +58,11 @@ const StyledButton2 = styled(Button)({
   border: 'none',
   cursor: 'pointer',
   borderRadius: '5px',
+});
+
+const Image = styled('img')({
+  width: '10vm',
+  height: '50vh'
 });
 
 
@@ -67,12 +74,13 @@ const Home = () => {
 
     <FlexContainer className='flex-container'>
       <Item1>
-        <p>For Faculty</p>
+        <p><strong>For Faculty</strong></p>
+        {/* <Image src="/faculty.jpg" alt="" /> */}
         <StyledButton1 className='item' variant="contained" onClick={() => navigate("/adminLogin")}>Admin Login</StyledButton1>
       </Item1>
      
      <Item2>
-      <p>For Students</p>
+      <p><strong>For Students</strong></p>
         <StyledButton2 className='item' variant="outlined" onClick={() => navigate("/main")}>User Login</StyledButton2>
      </Item2>
       

@@ -94,56 +94,133 @@ app.post('/update_table', async (req, res) => {
     res.status(500).json({ error: 'Error fetching data from MySQL' }); // Return specific error message
   }
 });
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// **********************************************************************************************************************************************
+// app.post('/api/return', (req, res) => {
+//   console.log('Request received with body:', req.body);
+//   const { registrationId } = req.body;
 
+//   if (!registrationId) {
+//     return res.status(400).json({ success: false, error: 'Invalid registration ID.' });
+//   }
 
+//   const sql3 = 'SELECT quantity FROM active_users WHERE reg_no = ?';
+//   const sql2 = 'SELECT equipment FROM active_users WHERE reg_no = ?';
+//   const sql1 = 'UPDATE equipments_table SET taken = taken + ?, available = available + ?, remaining = remaining + ? WHERE equipment_name = ?';
 
-app.post('/api/delete', (req, res) => {
+//   // Query to get quantity
+//   db.query(sql3, [registrationId], (err, quantResult) => {
+//     if (err) {
+//       console.error('Error executing SQL query3:', err);
+//       return res.status(500).json({ success: false, error: 'Error retrieving quantity: ' + err.message });
+//     }
+
+//     if (quantResult.length === 0) {
+//       return res.status(404).json({ success: false, error: 'No matching record found for the provided registration ID.' });
+//     }
+
+//     console.log('Quantity result:', quantResult);
+//     let quant = parseInt(quantResult[0]?.quantity, 10);
+
+//     if (isNaN(quant)) {
+//       return res.status(404).json({ success: false, error: 'Invalid quantity retrieved for the given registration ID.' });
+//     }
+
+//     // Query to get equipment
+//     db.query(sql2, [registrationId], (err, equipResult) => {
+//       if (err) {
+//         console.error('Error executing SQL query2:', err);
+//         return res.status(500).json({ success: false, error: 'Error retrieving equipment: ' + err.message });
+//       }
+
+//       if (equipResult.length === 0) {
+//         return res.status(404).json({ success: false, error: 'No matching record found for the provided registration ID.' });
+//       }
+
+//       console.log('Equipment result:', equipResult);
+//       const equip = equipResult[0]?.equipment;
+
+//       if (!equip) {
+//         return res.status(404).json({ success: false, error: 'Invalid equipment retrieved for the given registration ID.' });
+//       }
+
+//       // Query to update equipment
+//       db.query(sql1, [quant, quant, quant, equip], (err, updateResult) => {
+//         if (err) {
+//           console.error('Error executing SQL query1:', err);
+//           return res.status(500).json({ success: false, error: 'Error updating equipment: ' + err.message });
+//         }
+
+//         console.log('Update result:', updateResult);
+//         res.status(200).json({ success: true, message: 'Item returned successfully.' });
+//       });
+//     });
+//   });
+// });
+app.post('/api/return', async (req, res) => {
+  console.log('Request received with body:', req.body);
   const { registrationId } = req.body;
 
-  const sql = 'DELETE from active_users WHERE reg_no = ?';
-  
+  if (!registrationId) {
+    return res.status(400).json({ success: false, error: 'Invalid registration ID.' });
+  }
 
-      // Finally, execute sql query to delete entry from active_users
-      db.query(sql, [registrationId], (err, result) => {
-        if (err) {
-          console.error('Error executing SQL query:', err);
-          res.status(500).json({ error: 'An error occurred while returning item.' });
-          return;
-        }
-        
-        res.json({ success: true });
-      });
-    });
+  const sql1 = 'SELECT quantity, equipment FROM active_users WHERE reg_no = ?';
+  const sql2 = 'UPDATE equipments_table SET taken = taken - ?, available = available + ?, remaining = remaining + ? WHERE equipment_name = ?';
+  const sql3 = 'DELETE FROM active_users WHERE reg_no = ?'; // The DELETE query to remove the row
 
+  let connection;
+  try {
+    // Start a transaction using promise-based API
+    connection = await db.getConnection();  // Ensure connection is using promises
+    await connection.beginTransaction();
 
-app.post('/api/return', (req, res) => {
-  const { registrationId } = req.body;
-  const sql2 = 'SELECT equipment FROM active_users WHERE reg_no = ?';
-  const sql1 = 'UPDATE equipments_table SET taken = 0 WHERE equipment_name = ?';
+    // Execute first query to get quantity and equipment
+    const [results] = await connection.query(sql1, [registrationId]);
 
-
-  // Execute sql2 query to get the equipment_name
-  db.query(sql2, [registrationId], (err, result) => {
-    if (err) {
-      console.error('Error executing SQL query:', err);
-      res.status(500).json({ error: 'An error occurred while returning item.' });
-      return;
+    if (results.length === 0) {
+      await connection.rollback();
+      return res.status(404).json({ success: false, error: 'No matching record found for the provided registration ID.' });
     }
-    
-    // Extract equipment_name from the result
-    const equipmentName = result[0].equipment;
-    console.log(equipmentName);
 
-    // Now execute sql1 query using the retrieved equipment_name
-    db.query(sql1, [equipmentName], (err, result) => {
-      if (err) {
-        console.error('Error executing SQL query:', err);
-        res.status(500).json({ error: 'An error occurred while returning item.' });
-        return;
-      }
-    });
-  });
+    const quant = parseInt(results[0].quantity, 10);
+    const equip = results[0].equipment;
+
+    if (isNaN(quant) || !equip) {
+      await connection.rollback();
+      return res.status(404).json({ success: false, error: 'Invalid quantity or equipment retrieved for the given registration ID.' });
+    }
+
+    // Execute second query to update the equipment
+    await connection.query(sql2, [quant, quant, quant, equip]);
+
+    // Execute third query to delete the row from active_users
+    await connection.query(sql3, [registrationId]);
+
+    // Commit the transaction
+    await connection.commit();
+    console.log('Transaction completed successfully');
+    res.status(200).json({ success: true, message: 'Item returned successfully and record deleted.' });
+  } catch (err) {
+    console.error('Error in transaction:', err);
+    if (connection) await connection.rollback();
+    return res.status(500).json({ success: false, error: 'Error in transaction: ' + err.message });
+  } finally {
+    if (connection) await connection.release();  // Ensure connection is released
+  }
 });
+
+  
+    
 
 
 

@@ -176,8 +176,6 @@ app.all('/rundemo', (req, res) => {
       .catch((err)=>{console.log(err)})
 
     console.error(`Python script stderr: ${stderr}`);
-    // res.send(`Rajat is chadd: ${stdout}`);
-    
   });
 
   pythonProcess.on('exit', (code) => {
@@ -191,9 +189,6 @@ app.all('/rundemo', (req, res) => {
 app.all('*', (req, res) => {
   res.status(404).send('Page not found');
 });
-
-
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

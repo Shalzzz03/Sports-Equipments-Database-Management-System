@@ -45,3 +45,6 @@ h3{
 h1{
     font-family: Arial, sans-serif;
 }
+.form-control-spacing {
+    margin-bottom: 24px;
+}

@@ -109,7 +109,7 @@ function BorrowingForm() {
                     
                 </Stack>
                 
-                <FormControl fullWidth>
+                <FormControl fullWidth className="form-control-spacing" >
                 <InputLabel  id="demo-simple-select-label">Equipment</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
@@ -124,7 +124,7 @@ function BorrowingForm() {
                 </Select>
                 </FormControl>
                 
-                <FormControl fullWidth>
+                <FormControl fullWidth className="form-control-spacing">
                 <InputLabel id="demo-simple-select-label">Quantity</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
